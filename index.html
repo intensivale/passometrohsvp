@@ -531,8 +531,7 @@ let sistemaInicializado = false; // Impede salvar formulário vazio na inicializ
     <label style="min-width: auto;">
         <span style="color: white; font-weight: bold;">CTI:</span>
         <select id="seletorCTI" onchange="atualizarLeitos()" style="font-size: 16px; padding: 10px 15px; font-weight: bold; min-width: 80px;">
-          <option value="CTI1">CTI 1</option>
-          <option value="CTI2">CTI 2</option>
+          <option value="CTI1">CTI</option>
         </select>
     </label>
     <label style="min-width: auto;">
@@ -1288,28 +1287,6 @@ let sistemaInicializado = false; // Impede salvar formulário vazio na inicializ
       <input id="pic_dve_dias" name="pic_dve_dias" readonly="" style="background: #f0f0f0;" type="text"/>
 </label>
 </div>
-<div class="row nowrap">
-<label style="min-width: 260px;">Swan Ganz:
-      <input name="swan_ganz_local" type="text" placeholder="ex: VJD, dia de inserção"/>
-</label>
-<label style="min-width: 180px;">Data inserção:
-      <input id="swan_ganz_data" name="swan_ganz_data" onchange="calcularDiasInvasivos()" type="date"/>
-</label>
-<label style="min-width: 100px;">Dias:
-      <input id="swan_ganz_dias" name="swan_ganz_dias" readonly="" style="background: #f0f0f0;" type="text"/>
-</label>
-</div>
-<div class="row nowrap">
-<label style="min-width: 260px;">Flotrac/Vigileo (local):
-      <input name="flotrac_local" type="text" placeholder="ex: artéria radial D"/>
-</label>
-<label style="min-width: 180px;">Data inserção:
-      <input id="flotrac_data" name="flotrac_data" onchange="calcularDiasInvasivos()" type="date"/>
-</label>
-<label style="min-width: 100px;">Dias:
-      <input id="flotrac_dias" name="flotrac_dias" readonly="" style="background: #f0f0f0;" type="text"/>
-</label>
-</div>
 <!-- Sonda enteral admissão -->
 <div class="row nowrap">
 <label style="min-width: 260px;">Sonda enteral (via):
@@ -1810,53 +1787,6 @@ let sistemaInicializado = false; // Impede salvar formulário vazio na inicializ
 </label>
 <label style="min-width: 140px;">IRVS:
       <input name="evo_escco_irvs" type="text" placeholder="dyn·s/cm⁵/m²"/>
-</label>
-</div>
-</div>
-<!-- Flotrac dados hemodinâmicos -->
-<div class="row nowrap" style="align-items: center; margin-top: 10px;">
-<label style="flex-direction: row; align-items: center; gap: 8px; min-width: unset;">
-<input name="evo_flotrac_dados_check" type="checkbox" onclick="toggleHemoExtra('flotrac_dados')"/> Flotrac/Vigileo (dados)
-</label>
-</div>
-<div class="hidden" id="evo_flotrac_dados_wrap" style="margin-top: 6px;">
-<div class="row nowrap" style="flex-wrap: wrap; gap: 10px;">
-<label style="min-width: 130px;">IC (L/min/m²):
-      <input name="evo_flotrac_ic" type="text" placeholder="L/min/m²"/>
-</label>
-<label style="min-width: 170px;">IRVS (dyn·s/cm⁵/m²):
-      <input name="evo_flotrac_irvs" type="text" placeholder="dyn·s/cm⁵/m²"/>
-</label>
-<label style="min-width: 130px;">PVC (mmHg):
-      <input name="evo_flotrac_pvc" type="text" placeholder="mmHg"/>
-</label>
-</div>
-</div>
-<!-- Swan Ganz dados hemodinâmicos -->
-<div class="row nowrap" style="align-items: center; margin-top: 10px;">
-<label style="flex-direction: row; align-items: center; gap: 8px; min-width: unset;">
-<input name="evo_swan_dados_check" type="checkbox" onclick="toggleHemoExtra('swan_dados')"/> Swan Ganz (dados)
-</label>
-</div>
-<div class="hidden" id="evo_swan_dados_wrap" style="margin-top: 6px;">
-<div class="row nowrap" style="flex-wrap: wrap; gap: 10px;">
-<label style="min-width: 130px;">PVC (mmHg):
-      <input name="evo_swan_pvc" type="text" placeholder="mmHg"/>
-</label>
-<label style="min-width: 130px;">POAP (mmHg):
-      <input name="evo_swan_poap" type="text" placeholder="mmHg"/>
-</label>
-<label style="min-width: 130px;">PAPm (mmHg):
-      <input name="evo_swan_papm" type="text" placeholder="mmHg"/>
-</label>
-<label style="min-width: 130px;">IC (L/min/m²):
-      <input name="evo_swan_ic" type="text" placeholder="L/min/m²"/>
-</label>
-<label style="min-width: 170px;">IRVS (dyn·s/cm⁵/m²):
-      <input name="evo_swan_irvs" type="text" placeholder="dyn·s/cm⁵/m²"/>
-</label>
-<label style="min-width: 170px;">IRVP (dyn·s/cm⁵/m²):
-      <input name="evo_swan_irvp" type="text" placeholder="dyn·s/cm⁵/m²"/>
 </label>
 </div>
 </div>
@@ -2544,29 +2474,6 @@ let sistemaInicializado = false; // Impede salvar formulário vazio na inicializ
 </label>
 <label style="min-width: 90px;">Dias:
         <input id="evo_pic_dve_dias" name="evo_pic_dve_dias" readonly="" style="background: #f0f0f0;" type="text"/>
-</label>
-</div>
-<div class="row nowrap">
-<label style="min-width: 240px;">Swan Ganz (local):
-        <input name="evo_swan_ganz_local" type="text" placeholder="ex: VJD"/>
-</label>
-<label style="min-width: 170px;">Data:
-        <input id="evo_swan_ganz_data" name="evo_swan_ganz_data" onchange="calcularDiasInvasivosEvo()" type="date"/>
-</label>
-<label style="min-width: 90px;">Dias:
-        <input id="evo_swan_ganz_dias" name="evo_swan_ganz_dias" readonly="" style="background: #f0f0f0;" type="text"/>
-</label>
-</div>
-<!-- Flotrac -->
-<div class="row nowrap">
-<label style="min-width: 240px;">Flotrac/Vigileo:
-        <input name="evo_flotrac_local" type="text" placeholder="ex: artéria radial D"/>
-</label>
-<label style="min-width: 170px;">Data:
-        <input id="evo_flotrac_data" name="evo_flotrac_data" onchange="calcularDiasInvasivosEvo()" type="date"/>
-</label>
-<label style="min-width: 90px;">Dias:
-        <input id="evo_flotrac_dias" name="evo_flotrac_dias" readonly="" style="background: #f0f0f0;" type="text"/>
 </label>
 </div>
 <!-- Sonda Enteral -->
@@ -5207,10 +5114,9 @@ let sistemaInicializado = false; // Impede salvar formulário vazio na inicializ
       var html = '<div id="modalRemanej" style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.55);z-index:9999;display:flex;align-items:center;justify-content:center;">'
         + '<div style="background:#fff;border-radius:10px;padding:22px;min-width:420px;max-width:520px;max-height:85vh;overflow-y:auto;box-shadow:0 8px 32px rgba(0,0,0,0.3);">'
         + '<h3 style="margin:0 0 4px 0;color:#e65100;">🔄 Remanejamento de Leito</h3>'
-        + '<p style="margin:0 0 10px;color:#555;font-size:13px;">Paciente: <b>' + nomePct + '</b> &nbsp;(' + ctiAtual.replace('CTI','CTI ') + ' — Leito ' + leitoAtual + ')</p>'
+        + '<p style="margin:0 0 10px;color:#555;font-size:13px;">Paciente: <b>' + nomePct + '</b> &nbsp;(CTI — Leito ' + leitoAtual + ')</p>'
         + '<p style="margin:0 0 4px;font-size:12px;color:#777;">🟢 Vago (clique para remanejar) &nbsp;|&nbsp; 🔴 Ocupado (bloqueado)</p>'
-        + blocoLeitos('CTI1', '🏥 CTI 1')
-        + blocoLeitos('CTI2', '🏥 CTI 2')
+        + blocoLeitos('CTI1', '🏥 CTI')
         + '<button onclick="fecharModalRemanej()" '
         + 'style="width:100%;margin-top:14px;padding:10px;background:#607d8b;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:14px;">Cancelar</button>'
         + '</div></div>';
@@ -7927,8 +7833,8 @@ function evoGerarTexto() {
     }
 
 
-var leitosCTI1 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,99];
-var leitosCTI2 = [1,2,3,4,5,6,7,8,9,10,11,12,13,15,16,18,19,20,99];
+var leitosCTI1 = [1,2,3,4,5,6,7,8,9,99];
+var leitosCTI2 = [];
 var leitosExtras = [99]; // Leito extra para remanejamento temporário
 
 var ctiAtual = 'CTI1';
@@ -9511,6 +9417,14 @@ function mostrarModalResumoAlta(nomePaciente, loading) {
                         <div style="background:#e3f2fd;border:1px solid #2196f3;border-radius:6px;padding:12px;margin-bottom:15px;color:#0d47a1;">
                             ℹ️ Resumo gerado automaticamente com base nos dados da internação. Revise e edite conforme necessário.
                         </div>
+                        <div style="margin-bottom:15px;padding:12px;background:#fff8e1;border:1px solid #ffb300;border-radius:6px;">
+                            <label style="font-weight:bold;color:#333;">Desfecho da alta:
+                                <select id="altaDesfecho" style="margin-left:8px;padding:7px 10px;border:1px solid #ccc;border-radius:6px;font-size:14px;font-weight:bold;">
+                                    <option value="Alta para enfermaria">Alta para enfermaria</option>
+                                    <option value="Óbito">Óbito</option>
+                                </select>
+                            </label>
+                        </div>
                         <textarea id="resumoAltaTexto" style="width:100%;height:450px;font-family:monospace;font-size:13px;padding:15px;border:1px solid #ddd;border-radius:6px;resize:vertical;"></textarea>
                     </div>
                 </div>
@@ -9550,8 +9464,9 @@ function copiarResumoAlta() {
 
 function confirmarAltaComResumo() {
     var nomePaciente = document.getElementById('resumoAltaNome').textContent;
-    
-    if (!confirm("⚠️ CONFIRMAR ALTA?\n\nPaciente: " + nomePaciente + "\n\nEsta ação não pode ser desfeita.")) return;
+    var desfechoSel = document.getElementById('altaDesfecho')?.value || 'Alta para enfermaria';
+
+    if (!confirm("⚠️ CONFIRMAR ALTA?\n\nPaciente: " + nomePaciente + "\nDesfecho: " + desfechoSel + "\n\nEsta ação não pode ser desfeita.")) return;
     
     fecharModalResumoAlta();
     executarAlta(nomePaciente);
@@ -9583,11 +9498,13 @@ function executarAlta(nomePaciente) {
     
     // Incluir o resumo de alta no registro
     var resumoAlta = document.getElementById('resumoAltaTexto')?.value || '';
-    
+    var desfechoAlta = document.getElementById('altaDesfecho')?.value || 'Alta para enfermaria';
+
     var registroAlta = {
         nome: nomePaciente,
         cti: ctiAtual,
         leito: leitoAtual,
+        desfecho: desfechoAlta,
         dataAlta: new Date().toLocaleString('pt-BR'),
         dataAdmissao: conteudo.datahora_admissao || '',
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
@@ -9808,6 +9725,7 @@ function renderizarListaAltas(filtro) {
             html += '<th style="padding: 12px; text-align: left;">CTI/Leito</th>';
             html += '<th style="padding: 12px; text-align: left;">Admissão</th>';
             html += '<th style="padding: 12px; text-align: left;">Alta</th>';
+            html += '<th style="padding: 12px; text-align: left;">Desfecho</th>';
             html += '<th style="padding: 12px; text-align: center;">Ações</th>';
             html += '</tr></thead><tbody>';
             
@@ -9817,6 +9735,9 @@ function renderizarListaAltas(filtro) {
                 html += '<td style="padding: 10px;">' + (alta.cti || '').replace('CTI', 'CTI ') + ' - Leito ' + (alta.leito || '') + '</td>';
                 html += '<td style="padding: 10px;">' + formatarData(alta.dataAdmissao) + '</td>';
                 html += '<td style="padding: 10px;">' + (alta.dataAlta || '') + '</td>';
+                var _desf = alta.desfecho || '—';
+                var _corDesf = (_desf === 'Óbito') ? '#c62828' : '#2e7d32';
+                html += '<td style="padding: 10px; font-weight: bold; color: ' + _corDesf + ';">' + _desf + '</td>';
                 html += '<td style="padding: 10px; text-align: center;">';
                 html += '<button onclick="verDetalhesAlta(\'' + alta.id + '\')" style="background: #1976d2; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; margin-right: 5px;">Ver</button>';
                 html += '<button onclick="iniciarDesfazerAlta(\'' + alta.id + '\')" style="background: #e65100; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; margin-right: 5px;" title="Restaura tudo: admissão, evoluções e labs">↩️ Desfazer Alta</button>';
@@ -9869,6 +9790,7 @@ function verDetalhesAlta(idAlta) {
             texto += 'Leito: ' + (alta.leito || '-') + '\n';
             texto += 'Data Admissão: ' + formatarData(alta.dataAdmissao) + '\n';
             texto += 'Data Alta: ' + (alta.dataAlta || '-') + '\n';
+            texto += 'Desfecho: ' + (alta.desfecho || '-') + '\n';
             texto += 'Alta registrada por: ' + (alta.altaDadaPor || '-') + '\n\n';
             
             // RESUMO DE ALTA (se existir)
@@ -10083,8 +10005,7 @@ function rutiRenderizar() {
         return h;
     }
 
-    html += renderCTI('CTI1', 'CTI 1', leitosCTI1);
-    html += renderCTI('CTI2', 'CTI 2', leitosCTI2);
+    html += renderCTI('CTI1', 'CTI', leitosCTI1);
     corpo.innerHTML = html;
 
     var vagos = totalLeitos - totalOcup;
@@ -10306,32 +10227,18 @@ function renderizarResumoCTI() {
             var totalOcupados = 0;
             var totalLeitos = 0;
             
-            // CTI 1
+            // CTI
             html += '<div style="margin-bottom: 30px;">';
-            html += '<h3 style="color: #1565c0; border-bottom: 2px solid #1565c0; padding-bottom: 10px;">🏥 CTI 1</h3>';
+            html += '<h3 style="color: #1565c0; border-bottom: 2px solid #1565c0; padding-bottom: 10px;">🏥 CTI</h3>';
             html += '<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px;">';
-            
+
             leitosCTI1.forEach(function(num) {
                 var info = obterInfoLeitoFirebase(dadosLeitos, 'CTI1', num);
                 totalLeitos++;
                 if (info.ocupado) totalOcupados++;
                 html += gerarCardLeito('CTI1', num, info);
             });
-            
-            html += '</div></div>';
-            
-            // CTI 2
-            html += '<div style="margin-bottom: 30px;">';
-            html += '<h3 style="color: #1565c0; border-bottom: 2px solid #1565c0; padding-bottom: 10px;">🏥 CTI 2</h3>';
-            html += '<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px;">';
-            
-            leitosCTI2.forEach(function(num) {
-                var info = obterInfoLeitoFirebase(dadosLeitos, 'CTI2', num);
-                totalLeitos++;
-                if (info.ocupado) totalOcupados++;
-                html += gerarCardLeito('CTI2', num, info);
-            });
-            
+
             html += '</div></div>';
             
             container.innerHTML = html;
@@ -10802,9 +10709,7 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
       <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
         <div style="display:flex; gap:6px;">
-          <button onclick="rutiMostrarCTI('ambos')" id="rutiBtnAmbos" style="background:rgba(255,255,255,0.3); border:2px solid white; color:white; padding:6px 14px; border-radius:20px; cursor:pointer; font-weight:700;">CTI 1 + 2</button>
-          <button onclick="rutiMostrarCTI('CTI1')"  id="rutiBtnCTI1"  style="background:transparent; border:2px solid rgba(255,255,255,0.5); color:white; padding:6px 14px; border-radius:20px; cursor:pointer;">CTI 1</button>
-          <button onclick="rutiMostrarCTI('CTI2')"  id="rutiBtnCTI2"  style="background:transparent; border:2px solid rgba(255,255,255,0.5); color:white; padding:6px 14px; border-radius:20px; cursor:pointer;">CTI 2</button>
+          <button onclick="rutiMostrarCTI('ambos')" id="rutiBtnAmbos" style="background:rgba(255,255,255,0.3); border:2px solid white; color:white; padding:6px 14px; border-radius:20px; cursor:pointer; font-weight:700;">CTI</button>
         </div>
         <button onclick="rutiImprimir()" style="background:#ff9800; border:none; color:white; padding:8px 16px; border-radius:6px; cursor:pointer; font-weight:700;">🖨️ Imprimir</button>
         <button onclick="fecharResumoUTI()" style="background:rgba(255,255,255,0.2); border:none; color:white; font-size:22px; cursor:pointer; width:36px; height:36px; border-radius:6px; line-height:1;">✕</button>
@@ -13801,10 +13706,8 @@ async function abrirModalMetas() {
 
 function renderMetasConteudo() {
   var blocos = [
-    { titulo: 'CTI 1 — Leitos 1 a 10',  filtro: function(p){ return p.cti==='CTI1' && p.num>=1  && p.num<=10; } },
-    { titulo: 'CTI 1 — Leitos 11 a 20', filtro: function(p){ return p.cti==='CTI1' && (p.num>=11 || p.num===99); } },
-    { titulo: 'CTI 2 — Leitos 1 a 9',   filtro: function(p){ return p.cti==='CTI2' && p.num>=1  && p.num<=9; } },
-    { titulo: 'CTI 2 — Leitos 10 a 20', filtro: function(p){ return p.cti==='CTI2' && (p.num>=10 || p.num===99); } },
+    { titulo: 'CTI — Leitos 1 a 9', filtro: function(p){ return p.cti==='CTI1' && p.num>=1 && p.num<=9; } },
+    { titulo: 'CTI — Leito Extra',  filtro: function(p){ return p.cti==='CTI1' && p.num===99; } },
   ];
 
   var html = '';
@@ -13863,10 +13766,8 @@ function metasImprimir() {
   var horaStr = String(hoje.getHours()).padStart(2,'0')+':'+String(hoje.getMinutes()).padStart(2,'0');
 
   var blocos = [
-    { titulo: 'CTI 1 — Leitos 1 a 10',  filtro: function(p){ return p.cti==='CTI1' && p.num>=1  && p.num<=10; } },
-    { titulo: 'CTI 1 — Leitos 11 a 20', filtro: function(p){ return p.cti==='CTI1' && (p.num>=11 || p.num===99); } },
-    { titulo: 'CTI 2 — Leitos 1 a 9',   filtro: function(p){ return p.cti==='CTI2' && p.num>=1  && p.num<=9; } },
-    { titulo: 'CTI 2 — Leitos 10 a 20', filtro: function(p){ return p.cti==='CTI2' && (p.num>=10 || p.num===99); } },
+    { titulo: 'CTI — Leitos 1 a 9', filtro: function(p){ return p.cti==='CTI1' && p.num>=1 && p.num<=9; } },
+    { titulo: 'CTI — Leito Extra',  filtro: function(p){ return p.cti==='CTI1' && p.num===99; } },
   ];
 
   var css = 'body{font-family:Arial,sans-serif;font-size:12px;margin:0;padding:14px}'
@@ -14190,8 +14091,8 @@ async function confirmarDesfazerAlta() {
 var _readmAltaId   = null;
 var _readmAltaDados = null;
 
-var _LEITOS_CTI1 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,99];
-var _LEITOS_CTI2 = [1,2,3,4,5,6,7,8,9,10,11,12,13,15,16,18,19,20,99];
+var _LEITOS_CTI1 = [1,2,3,4,5,6,7,8,9,99];
+var _LEITOS_CTI2 = [];
 
 async function iniciarReadmissao(idAlta) {
   try {
@@ -15673,8 +15574,7 @@ function escapeHtml(str) {
     <div style="margin-bottom:14px;">
       <label style="font-size:11px;font-weight:bold;text-transform:uppercase;letter-spacing:.5px;color:#555;display:block;margin-bottom:6px;">CTI destino</label>
       <select id="desfazCTI" style="width:100%;padding:9px;border:1.5px solid #ddd;border-radius:8px;font-size:14px;" onchange="desfazAtualizarLeitos()">
-        <option value="CTI1">CTI 1</option>
-        <option value="CTI2">CTI 2</option>
+        <option value="CTI1">CTI</option>
       </select>
     </div>
     <div style="margin-bottom:16px;">
@@ -15708,8 +15608,7 @@ function escapeHtml(str) {
     <div style="margin-bottom:14px;">
       <label style="font-size:11px;font-weight:bold;text-transform:uppercase;letter-spacing:.5px;color:#555;display:block;margin-bottom:6px;">CTI destino</label>
       <select id="readmCTI" style="width:100%;padding:9px;border:1.5px solid #ddd;border-radius:8px;font-size:14px;" onchange="readmAtualizarLeitos()">
-        <option value="CTI1">CTI 1</option>
-        <option value="CTI2">CTI 2</option>
+        <option value="CTI1">CTI</option>
       </select>
     </div>
     <div style="margin-bottom:16px;">
